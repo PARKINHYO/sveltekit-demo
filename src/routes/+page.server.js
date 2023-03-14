@@ -51,7 +51,7 @@ export const actions = {
     return {
       username: resData["username"],
       id, 
-      invalidMessage: "id or password is not valid",
+      invalidMessage: "incorrect id or password.",
     };
   },
 

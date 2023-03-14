@@ -5,61 +5,37 @@
     export let data;
 </script>
 
-<!-- <form method="POST" action="?/signup"><button>Sign up</button></form>
-<br><br>
-
-{#if !data?.sessionid}
-<form method="POST" action="?/login">
-    <label>
-        Id
-        <input name="id" type="text" value={form?.id || ""} 
-        required minlength="5" maxlength="20">
-    </label>
-    <label>
-        Password
-        <input name="password" type="password" required 
-        minlength="5" maxlength="20">
-    </label>
-    <button>Sign in</button>
-</form>
-{:else}
-<h1>login completed</h1>
-{/if}
-
-<p>ID: kminchelle</p>
-<p>PW: 0lelplR</p>
-
-{#if form?.invalidMessage}
-<p>{form.invalidMessage}</p>
-{/if} -->
-
-<!-- <style>
-    body {
-        background-color: #0C0E12;
-        overflow-y: scroll;
-    }
-    html {
-        overflow-y: scroll;
-    }
-</style> -->
 <div class="main3"><a href="/" ><img src="logo.png" alt="logo" width="65" height="65"></a></div>
-
 <div class="main4">Sign in to KS5</div>
 
+{#if form?.invalidMessage}
+<div class="main5">
+    {form.invalidMessage}
+</div>
+{/if}
 
+{#if !data?.sessionid}
 <div class="main">
     <!-- <h1 class="logo">Acidgram</h1> -->
-    <div class="container">
+    <form method="POST" action="?/login" class="container">
         <div class="container2">Id</div>
-        <input type="text" id="id" class="account">
+        <input name="id" type="text" id="id" class="account">
         <div class="container2">Password</div>
-        <input type="password" id="password" class="account">
+        <input name="password" type="password" id="password" class="account">
         <button id="login" class="account">Sign in</button>
-    </div>
-</div>   
+    </form>
+</div> 
 <div class="main2">
     <div class="container2">New to KS5? <a href="/signup" class="link">Create an account</a>.</div>
 </div>
+<div class="main2">
+    <div class="container2">ID: kminchelle, PW: 0lelplR (demo account)</div>
+</div>
+{:else}
+<div class="main2">
+    <div class="container2">login completed</div>
+</div>
+{/if}
 
 <style>
 .main {
@@ -90,6 +66,14 @@
     margin-top: 15px;
 }
 
+#login:hover {
+    filter: brightness(150%);
+}
+
+#login:active {
+    filter: brightness(70%);
+}
+
 .account {
     width: 275px;
     height: 29px;
@@ -104,6 +88,10 @@
 
 .container2 {
     padding: 6px;
+}
+
+.container3 {
+    color: red;
 }
 
 .main2 {
@@ -149,6 +137,21 @@
     /* border: 1px solid lightgrey; */
     border-radius: 10px;
     background-color: #0B0C0F;
+}
+
+.main5 {
+    width: 310px;
+    margin: auto;
+    margin-top: 12px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid lightgrey; */
+    border-radius: 10px;
+    background-color: #251417;
+    border: 1px solid #6C2224;
 }
 
 .link {
