@@ -26,8 +26,8 @@
         <input name="email" type="email" class="account">
         <div class="text">Team</div>
         <select name="team" class="account">
-            <option value="frontend-1">dev</option>
-            <option value="frontend-2">ops</option>
+            <option value="dev">dev</option>
+            <option value="ops">ops</option>
         </select>
         <button id="login" class="account">Create account</button>
     </form>

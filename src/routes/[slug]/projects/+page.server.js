@@ -3,6 +3,11 @@ import { API_URL, API_VERSION } from '$env/static/private';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params, cookies }) {
+  const teamId = cookies.get('teamId')
+
+  if (params.slug != teamId) {
+    throw redirect(302, "/" + teamId + "/projects");
+  }
 
   const res = await fetch(API_URL + "/api/" + API_VERSION + 
   "/projects/" + params.slug, {
