@@ -2,9 +2,9 @@
 
  /** @type {import('./$types').LayoutServerLoad} */
 export async function load({ cookies }) {
-  const sessionid = cookies.get('sessionid');
+  const sessionId = cookies.get('sessionId');
 
-  if (!sessionid)
+  if (!sessionId)
   {
     throw redirect(302, "/");
   }

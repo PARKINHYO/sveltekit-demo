@@ -1,12 +1,10 @@
-
-
 <script>
     /** @type {import('./$types').PageServerData} */
     export let data;
 </script>
 
 <nav>
-    <a href="/{data.username}/projects">Projects</a>
+    <a href="/{data.teamId}/projects">Projects</a>
 </nav>
 
 <h1>Projects</h1>
@@ -17,17 +15,17 @@
 <table>
     <thead>
         <tr>
-            <th>id</th>
-            <th>title</th>
-            <th>body</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
         </tr>
     </thead>
 <tbody>
-    {#each data.posts as post}
+    {#each data.projects as project}
       <tr>
-          <td>{post['id']}</td>
-          <td><a href="/{data.username}/projects/{post['id']}/applications">{post['title']}</a></td>
-          <td>{post['body']}</td>
+          <td>{project['id']}</td>
+          <td><a href="/{data.teamId}/projects/{project['id']}/applications">{project['name']}</a></td>
+          <td>{project['description']}</td>
       </tr>
     {/each}
 </tbody>

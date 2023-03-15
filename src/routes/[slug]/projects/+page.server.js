@@ -1,35 +1,31 @@
 import { redirect } from '@sveltejs/kit';
+import { API_URL, API_VERSION } from '$env/static/private';
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ params }) {
-  
-  const res = await fetch('https://dummyjson.com/users/4/posts', {
+export async function load({ params, cookies }) {
+
+  const res = await fetch(API_URL + "/api/" + API_VERSION + 
+  "/projects/" + params.slug, {
     method: 'GET',
   });
 
   const resData = await res.json();
-  
+
   return {
-    username: params.slug,
-    posts: resData['posts']
+    teamId: params.slug,
+    projects: resData
   }
 }
 
 /** @type {import('./$types').Actions} */
 export const actions = {
     signout: async ({cookies}) => {
-      // TODO log the user in
-      cookies.set("sessionid", '', {
+      cookies.set("sessionId", '', {
         path: "/",
         sameSite: "strict",
         maxAge: 0,
       });
-      cookies.set("username", '', {
-        path: "/",
-        sameSite: "strict",
-        maxAge: 0,
-      });
-      cookies.set("teamid", "", {
+      cookies.set("teamId", '', {
         path: "/",
         sameSite: "strict",
         maxAge: 0,
@@ -37,8 +33,8 @@ export const actions = {
       throw redirect(302, "/");
     },
 
-    create: async ({cookies, request}) => {
-      const username = cookies.get("username");
-      throw redirect(302, "/"+username+"/projects/new");
+    create: async ({cookies, request, params}) => {
+      const teamId = await cookies.get('teamId');
+      throw redirect(302, "/" + teamId + "/projects/new");
     }
   };

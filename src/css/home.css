@@ -1,0 +1,118 @@
+.login {
+    width: 310px;
+    margin: auto;
+    margin-top: 10px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid lightgrey; */
+    border-radius: 10px;
+    background-color: #121519;
+    border: 1px solid #191D21;
+}
+
+#login {
+    width: 100%;
+    background-color: #1F7629;
+    border-color: transparent;
+    color: white;
+    margin-top: 15px;
+}
+
+#login:hover {
+    filter: brightness(150%);
+}
+
+#login:active {
+    filter: brightness(70%);
+}
+
+.account {
+    width: 275px;
+    height: 29px;
+    display: block;
+    margin-bottom: 2px;
+    /* padding: 6px; */
+    border: 1px solid #24292E;
+    border-radius: 7px;
+    background-color: #0C0E12;
+    color: white;
+}
+
+.text {
+    padding: 6px;
+}
+
+.container3 {
+    color: red;
+}
+
+.minibox {
+    width: 310px;
+    margin: auto;
+    margin-top: 12px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid lightgrey; */
+    border-radius: 10px;
+    background-color: #0C0E12;
+    border: 1px solid #24292E;
+}
+
+.logo {
+    width: 170px;
+    margin: auto;
+    margin-top: 35px;
+    height: 70px;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid lightgrey; */
+    border-radius: 10px;
+    background-color: #0B0C0F;
+}
+
+.slogun {
+    width: 170px;
+    margin: auto;
+    margin-top: 3px;
+    height: 70px;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid lightgrey; */
+    border-radius: 10px;
+    background-color: #0B0C0F;
+}
+
+.message {
+    width: 310px;
+    margin: auto;
+    margin-top: 12px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid lightgrey; */
+    border-radius: 10px;
+    background-color: #251417;
+    border: 1px solid #6C2224;
+}
+
+.link {
+    color: #407CDC;
+    text-decoration-line: none;
+}
+.link:hover {
+    text-decoration: underline;
+}
