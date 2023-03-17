@@ -3,7 +3,15 @@ import { API_URL, API_VERSION } from '$env/static/private';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params, cookies }) {
-  const teamId = cookies.get('teamId')
+  const teamId = cookies.get('teamId');
+  let team = '';
+
+  if (teamId === '1') {
+    team = 'dev';
+  }
+  else {
+    team = 'ops';
+  }
 
   if (params.slug != teamId) {
     throw redirect(302, "/" + teamId + "/projects");
@@ -18,7 +26,8 @@ export async function load({ params, cookies }) {
 
   return {
     teamId: params.slug,
-    projects: resData
+    projects: resData,
+    "team": team
   }
 }
 

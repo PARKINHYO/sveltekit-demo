@@ -20,15 +20,14 @@ export const actions = {
       const name = formData.get("name");
       const email = formData.get("email");
       const team = formData.get("team");
-      console.log(team)
 
       let team_id;
       
       if (team === "dev") {
-        team_id = "2";
+        team_id = "1";
       }
       else {
-        team_id = "1";
+        team_id = "2";
       }
 
       const res = await fetch(API_URL + "/api/"+ API_VERSION + "/signup", {

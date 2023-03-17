@@ -1,7 +1,6 @@
 <script>
     /** @type {import('./$types').PageServerData} */
     export let data;
-    
 </script>
 
 <nav class="nav">
@@ -19,7 +18,7 @@
 <table class="project-table">
     <div>
         <div class="project-title">
-            <div>Projects({data.projects.length})</div>
+            <div>{data.team}&nbsp;Projects({data.projects.length})</div>
         </div>
         <div>
             <form method="POST" action="?/create"><button class="project-create">Create project</button></form>
