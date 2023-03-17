@@ -1,0 +1,100 @@
+.nav {
+    height: 50px;
+    background-color: #121519;
+    
+}
+
+.project-table {
+    margin: 25px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    text-align: left;
+}
+
+.project-tr {
+    padding: 15px;
+    margin: 25px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    text-align: left;
+    border: 1px solid #24292E;
+    border-radius: 7px;
+    border-collapse : collapse;
+    line-height: 200%;
+    background-color: #0C0E12;
+    color: #ECF4FB;
+}
+
+.project-tr:hover {
+    background-color: #121519;
+}
+
+.project-name {
+    font-size: 25px;
+}
+
+.project-description { 
+    margin-top: 5px;
+}
+
+.project-logo {
+    float: left;
+    margin: 10px;
+}
+
+.project-signout {
+    float: right;
+}
+
+.project-signout-button {
+    background-color: #1F7629;
+    border-color: transparent;
+    color: white;
+    margin: 10px;
+    border-radius: 7px;
+    width: 100px;
+    height: 29px;
+}
+
+.project-signout-button:hover {
+    filter: brightness(150%);
+}
+
+.project-signout-button:active {
+    filter: brightness(70%);
+}
+
+.project-create {
+    background-color: #1F7629;
+    border-color: transparent;
+    color: white;
+    border-radius: 7px;
+    width: 150px;
+    height: 29px;
+    margin-right: 24px;
+    float: right;
+}
+
+.project-create:hover {
+    filter: brightness(150%);
+}
+
+.project-create:active {
+    filter: brightness(70%);
+}
+
+.project-title {
+    margin-top: 3px;
+    font-size: 25px;
+    border-color: transparent;
+    color: white;
+    border-radius: 7px;
+    width: 150px;
+    height: 29px;
+    margin-left: 24px;
+    float: left;
+}

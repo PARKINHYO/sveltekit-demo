@@ -7,7 +7,7 @@
     </label><br>
     <label>
         Description: <br>
-        <textarea name="description" cols="70" rows="30" required minlength="5" maxlength="1000"></textarea>
+        <textarea name="description" cols="70" rows="30" required minlength="5" maxlength="200"></textarea>
     </label><br>
     <button>Create new project</button>
 </form>
