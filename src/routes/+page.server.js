@@ -5,16 +5,19 @@ import { API_URL, API_VERSION } from '$env/static/private';
 export async function load({ cookies }) {
   const sessionId = await cookies.get('sessionId');
   const teamId = await cookies.get('teamId');
+
   if (sessionId) {
     throw redirect(302, "/" + teamId + "/projects");
   }
-  return { sessionId }
+
+  return { sessionId };
 }
 
 /** @type {import('./$types').Actions} */
 export const actions = {
   login: async ({ cookies, request }) => {
     const formData = await request.formData();
+
     const id = formData.get("id");
     const password = formData.get("password");
 
@@ -28,8 +31,7 @@ export const actions = {
     });
     
     const resData = await res.json();
-    console.log(resData);
-
+    
     if (resData["message"] === "Login successfully")
     {
       cookies.set("sessionId", resData["user_id"],{ 
@@ -47,8 +49,6 @@ export const actions = {
     };
 
     return {
-      teamId: resData["team"],
-      id, 
       invalidMessage: "incorrect id or password.",
     };
   },

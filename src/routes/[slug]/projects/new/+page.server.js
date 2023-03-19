@@ -1,6 +1,15 @@
 import { redirect } from '@sveltejs/kit';
 import { API_URL, API_VERSION } from '$env/static/private';
 
+/** @type {import('./$types').PageServerLoad} */
+export async function load({params, cookies }) {
+    const teamId = cookies.get("teamId");
+    
+    if (params.slug != teamId) {
+        throw redirect(302, "/" + teamId + "/projects");
+    }
+}
+
 /** @type {import('./$types').Actions} */
 export const actions = {
     new: async ({ cookies, request }) => {
@@ -30,7 +39,7 @@ export const actions = {
         }
 
         return {
-            invlidMessage: "A project name already exists."
+            invalidMessage: "A project name already exists."
         }
     }
 };

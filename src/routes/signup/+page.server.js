@@ -13,22 +13,20 @@ export async function load({ cookies }) {
 
 /** @type {import('./$types').Actions} */
 export const actions = {
+    // @ts-ignore
     signup: async ({ cookies, request }) => {
       const formData = await request.formData();
+
       const id = formData.get("id");
       const password = formData.get("password");
       const name = formData.get("name");
       const email = formData.get("email");
       const team = formData.get("team");
 
-      let team_id;
-      
-      if (team === "dev") {
-        team_id = "1";
-      }
-      else {
-        team_id = "2";
-      }
+      const team_id = {
+        "dev": 1,
+        "ops": 2
+      };
 
       const res = await fetch(API_URL + "/api/"+ API_VERSION + "/signup", {
         method: 'POST',
@@ -36,7 +34,8 @@ export const actions = {
         body: JSON.stringify({
           "user_id": id,
           "password": password,
-          "team_id": team_id,
+          // @ts-ignore
+          "team_id": team_id[team],
           "name": name,
           "email": email
         })
