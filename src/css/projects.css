@@ -10,7 +10,7 @@
     justify-content: left;
     align-items: left;
     flex-direction: column;
-    text-align: left;
+    word-break: break-all;
 }
 
 .project-tr {
@@ -27,6 +27,7 @@
     line-height: 200%;
     background-color: #0C0E12;
     color: #ECF4FB;
+    text-align: left;
 }
 
 .project-tr:hover {
@@ -39,13 +40,13 @@
 
 .project-description { 
     margin-top: 5px;
-    overflow: hidden;
     text-align: left;
 }
 
 .project-appcount { 
     margin-top: 5px;
     color: #717A85;
+
 }
 
 .project-logo {
