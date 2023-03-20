@@ -34,12 +34,12 @@ export const actions = {
 
         const resData = await res.json();
 
-        if (resData["message"] === "Project Created succesfully") {
+        if (resData["message"] === "Project Created successfully") {
             throw redirect(302, "/"+ teamId +"/projects");
         }
 
         return {
-            invalidMessage: "A project name already exists."
+            invalidMessage: resData["message"]
         }
     }
 };

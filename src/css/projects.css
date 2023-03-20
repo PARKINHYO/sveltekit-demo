@@ -39,6 +39,13 @@
 
 .project-description { 
     margin-top: 5px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.project-appcount { 
+    margin-top: 5px;
+    color: #717A85;
 }
 
 .project-logo {

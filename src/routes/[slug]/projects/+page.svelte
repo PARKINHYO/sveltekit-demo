@@ -30,6 +30,7 @@
 {#each data.projects as project}
     <button class="project-tr" on:click={() => goto(`/${project['team_id']}/projects/${project['id']}/applications`)}>
         <div class="project-name">{project['name']}</div>
+        <div class="project-appcount">{project['app_count']} applications</div>
         <div class="project-description">{project['description']}</div>
     </button>
 {/each}
