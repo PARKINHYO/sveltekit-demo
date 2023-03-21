@@ -7,7 +7,7 @@ export async function load({ cookies }) {
   const teamId = await cookies.get('teamId');
 
   if (sessionId) {
-    throw redirect(302, "/" + teamId + "/projects");
+    throw redirect(302, "/" + sessionId + "/projects");
   }
 
   return { sessionId };
@@ -45,14 +45,23 @@ export const actions = {
         sameSite: "strict",
         maxAge: 60 * 60 * 24
       });
-      throw redirect(302, "/" + resData["team_id"] + "/projects");
+
+      cookies.set("teamName", resData["team_name"], {
+        path: "/", 
+        sameSite: "strict",
+        maxAge: 60 * 60 * 24
+      });
+      
+      console.log(resData["user_id"]);
+      //@ts-ignore
+      throw redirect(302, "/" + resData["user_id"] + "/projects");
     };
 
     return {
       invalidMessage: "incorrect id or password.",
     };
   },
-
+ 
   signup: async ({cookies, request }) => {
     throw redirect(302, "/signup");
   }

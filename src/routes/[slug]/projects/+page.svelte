@@ -19,18 +19,21 @@
 </nav>
 
 <table class="project-table">
+    <div class="project-userid">
+        Hello🤚🏻 {data.userId}
+    </div>
     <div>
         <div class="project-title">
-            <div>{data.team}&nbsp;projects({data.projects.length})</div>
+            <div>{data.team}&nbsp;team&nbsp;projects({data.projects.length})</div>
         </div>
         <div>
             <form method="POST" action="?/create"><button class="project-create">Create project</button></form>
         </div>
     </div>
 {#each data.projects as project}
-    <button class="project-tr" on:click={() => goto(`/${project['team_id']}/projects/${project['id']}/applications`)}>
+    <button class="project-tr" on:click={() => goto(`/${data.userId}/projects/${project['id']}/applications`)}>
         <div class="project-name">{project['name']}</div>
-        <div class="project-appcount">{project['app_count']} applications</div>
+        <div class="project-appcount">{project['app_count']} applications</div> 
         <div class="project-description">{project['description']}</div>
     </button>
 {/each}

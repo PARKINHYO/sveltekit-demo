@@ -17,9 +17,9 @@
 <div class="signup">
     <form method="POST" action="?/signup">
         <div class="text">Id</div>
-        <input name="id" type="text" class="account" required minlength="1" maxlength="20">
+        <input name="id" type="text" class="account" required minlength="1">
         <div class="text">Password</div>
-        <input name="password" type="password" class="account" required minlength="5" maxlength="100">
+        <input name="password" type="password" class="account" required minlength="8">
         <div class="text">Name</div>
         <input name="name" type="text" class="account"required minlength="1" maxlength="20">
         <div class="text">Email</div>

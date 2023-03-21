@@ -10,7 +10,6 @@
     justify-content: left;
     align-items: left;
     flex-direction: column;
-    word-break: break-all;
 }
 
 .project-tr {
@@ -28,6 +27,7 @@
     background-color: #0C0E12;
     color: #ECF4FB;
     text-align: left;
+    word-break: break-all;
 }
 
 .project-tr:hover {
@@ -101,12 +101,19 @@
     border-color: transparent;
     color: white;
     border-radius: 7px;
-    width: 150px;
+    /* width: 150px; */
     height: 29px;
     margin-left: 24px;
     float: left;
+    word-break: break-all;
 }
 
 .project-list-form-button {
     all:unset;
+}
+
+.project-userid {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-left: 24px;
 }

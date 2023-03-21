@@ -6,7 +6,7 @@ export async function load({ cookies }) {
   const sessionId = await cookies.get('sessionId');
   const teamId = await cookies.get('teamId');
   if (sessionId) {
-    throw redirect(302, "/" + teamId + "/projects");
+    throw redirect(302, "/" + sessionId + "/projects");
   }
   return { sessionId };
 }
@@ -22,6 +22,10 @@ export const actions = {
       const name = formData.get("name");
       const email = formData.get("email");
       const team = formData.get("team");
+
+      if (id === name) return {
+        invalidMessage: "The id and name should not be the same."
+      }
 
       const team_id = {
         "dev": 1,

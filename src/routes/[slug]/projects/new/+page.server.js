@@ -3,10 +3,10 @@ import { API_URL, API_VERSION } from '$env/static/private';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({params, cookies }) {
-    const teamId = cookies.get("teamId");
+    const sessionId = cookies.get("sessionId");
     
-    if (params.slug != teamId) {
-        throw redirect(302, "/" + teamId + "/projects");
+    if (params.slug != sessionId) {
+        throw redirect(302, "/" + sessionId + "/projects");
     }
 }
 
@@ -41,6 +41,25 @@ export const actions = {
         return {
             invalidMessage: resData["message"]
         }
+    },
+
+    signout: async ({ cookies }) => {
+        cookies.set("sessionId", '', {
+            path: "/",
+            sameSite: "strict",
+            maxAge: 0,
+          });
+          cookies.set("teamId", '', {
+            path: "/",
+            sameSite: "strict",
+            maxAge: 0,
+          });
+          cookies.set("teamName", '', {
+            path: "/",
+            sameSite: "strict",
+            maxAge: 0,
+          });
+          throw redirect(302, "/");
     }
 };
 
