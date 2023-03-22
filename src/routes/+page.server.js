@@ -3,10 +3,11 @@ import { API_URL, API_VERSION } from '$env/static/private';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ cookies }) {
-  const sessionId = await cookies.get('sessionId');
-  const teamId = await cookies.get('teamId');
+  const teamId = cookies.get('teamId');
+  const sessionId = cookies.get('sessionId');
+  const teamName = cookies.get('teamName');
 
-  if (sessionId) {
+  if (sessionId && sessionId && teamName) {
     throw redirect(302, "/" + sessionId + "/projects");
   }
 
@@ -52,7 +53,6 @@ export const actions = {
         maxAge: 60 * 60 * 24
       });
       
-      console.log(resData["user_id"]);
       //@ts-ignore
       throw redirect(302, "/" + resData["user_id"] + "/projects");
     };

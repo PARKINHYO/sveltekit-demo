@@ -35,7 +35,7 @@ export const actions = {
         const resData = await res.json();
 
         if (resData["message"] === "Project Created successfully") {
-            throw redirect(302, "/"+ teamId +"/projects");
+            throw redirect(302, "/"+ sessionId +"/projects");
         }
 
         return {

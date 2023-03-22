@@ -1,0 +1,14 @@
+.div-application-create {
+    width: 310px;
+    margin: auto;
+    margin-top: 20px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid lightgrey; */
+    border-radius: 10px;
+    background-color: #121519;
+    border: 1px solid #191D21;
+}
