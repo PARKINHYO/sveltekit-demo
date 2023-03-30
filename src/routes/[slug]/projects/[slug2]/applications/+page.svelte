@@ -1,8 +1,7 @@
 <script>
     /** @type {import('./$types').PageServerData} */
     export let data;
-
-    import { goto } from '$app/navigation';
+    export let form;
 </script>
 
 <nav class="nav">
@@ -16,6 +15,12 @@
         </div>
     </div>
 </nav>
+
+{#if form?.invalidMessage}
+<div class="message">
+    {form.invalidMessage}
+</div>
+{/if}
 
 <table class="project-table">
     <div class="project-userid">
@@ -34,63 +39,41 @@
         <div class="project-name">{application['name']}</div>
         <div class="project-description">{application['description']}</div>
         <div class="project-appcount">type: {application['type']}</div> 
-        <div class="project-appcount">author: {application['user_id']}</div> 
+        <div class="project-appcount">author: {application['user_id']}</div>
+        <span>
+            <form class="application-info-form" method="POST" action="?/build">
+                <input type="hidden" name="appId" value="{application['id']}">
+                <button class="application-info-button">Build</button>
+            </form>
+            <form class="application-info-form" method="POST" action="?/deploy">
+                <input type="hidden" name="appId" value="{application['id']}">
+                <button class="application-info-button">Deploy</button>
+            </form>
+            <form class="application-info-form" method="POST" action="?/source">
+                <input type="hidden" name="appId" value="{application['id']}">
+                <button class="application-info-button2">GitLab(source)</button>
+            </form>
+            <form class="application-info-form" method="POST" action="?/gitops">
+                <input type="hidden" name="appId" value="{application['id']}">
+                <button class="application-info-button2">GitLab(gitops)</button>
+            </form>
+            <form class="application-info-form" method="POST" action="?/jenkins">
+                <input type="hidden" name="appId" value="{application['id']}">
+                <button class="application-info-button4">Jenkins</button>
+            </form>
+            <form class="application-info-form" method="POST" action="?/argocd">
+                <input type="hidden" name="appId" value="{application['id']}">
+                <button class="application-info-button3">ArgoCD</button>
+            </form>
+            <form class="application-info-form" method="POST" action="?/grafana">
+                <input type="hidden" name="appId" value="{application['id']}">
+                <button class="application-info-button2">Grafana</button>
+            </form>
+            <form class="application-info-form" method="POST" action="?/kibana">
+                <input type="hidden" name="appId" value="{application['id']}">
+                <button class="application-info-button5">Kibana</button>
+            </form>
+        </span>
     </button>
 {/each}
 </table>
-
-
-
-
-
-
-
-
-
-<!-- <h1>Applications</h1>
-
-<p>
-    username: {data.username}<br>
-    projectid: {data.projectId}
-</p>
-
-<form method="POST" action="?/create"><button>New application</button></form>
-<br><br>
-
-<table>
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>product</th>
-            <th>price</th>
-            <th>quantity</th>
-            <th>total</th>
-            <th>discountPercentage</th>
-            <th>discountedPrice</th>
-        </tr>
-    </thead>
-<tbody>
-    {#each data.products as product}
-      <tr>
-          <td>{product['id']}</td>
-          <td><a href="/{data.username}/projects/{data.projectId}/applications/{product['id']}">{product['title']}</a></td>
-          <td>{product['price']}</td>
-          <td>{product['quantity']}</td>
-          <td>{product['total']}</td>
-          <td>{product['discountPercentage']}</td>
-          <td>{product['discountedPrice']}</td>
-      </tr>
-    {/each}
-</tbody>
-</table>
-
-<style>
-    table, th, td {
-      border: 1px solid;
-      border-collapse: collapse;
-      margin: 10px;
-    }
-</style>
-
-<br><br><br><br><br>
-<form method="POST" action="?/signout" ><button>Sign out</button></form> -->

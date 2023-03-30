@@ -117,3 +117,102 @@
     margin-top: 10px;
     margin-left: 24px;
 }
+
+.application-info-form {
+    display: inline-block;
+}
+
+.application-info-button {
+    background-color: #1F7629;
+    border-color: transparent;
+    color: white;
+    border-radius: 7px;
+    width: 110px;
+    height: 29px;
+    margin-right: 24px;
+    float: right;
+}
+
+.application-info-button:hover {
+    filter: brightness(150%);
+}
+
+.application-info-button:active {
+    filter: brightness(70%);
+}
+
+.application-info-button2 {
+    background-color: #E06D1D;
+    border-color: transparent;
+    color: white;
+    border-radius: 7px;
+    width: 110px;
+    height: 29px;
+    margin-right: 24px;
+    float: right;
+}
+
+.application-info-button2:hover {
+    filter: brightness(150%);
+}
+
+.application-info-button2:active {
+    filter: brightness(70%);
+}
+
+.application-info-button3 {
+    background-color: #3056D0;
+    border-color: transparent;
+    color: white;
+    border-radius: 7px;
+    width: 110px;
+    height: 29px;
+    margin-right: 24px;
+    float: right;
+}
+
+.application-info-button3:hover {
+    filter: brightness(150%);
+}
+
+.application-info-button3:active {
+    filter: brightness(70%);
+}
+
+.application-info-button4 {
+    background-color: #5A585A;
+    border-color: transparent;
+    color: white;
+    border-radius: 7px;
+    width: 110px;
+    height: 29px;
+    margin-right: 24px;
+    float: right;
+}
+
+.application-info-button4:hover {
+    filter: brightness(150%);
+}
+
+.application-info-button4:active {
+    filter: brightness(70%);
+}
+
+.application-info-button5 {
+    background-color: #D63773;
+    border-color: transparent;
+    color: white;
+    border-radius: 7px;
+    width: 110px;
+    height: 29px;
+    margin-right: 24px;
+    float: right;
+}
+
+.application-info-button5:hover {
+    filter: brightness(150%);
+}
+
+.application-info-button5:active {
+    filter: brightness(70%);
+}

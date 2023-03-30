@@ -58,7 +58,7 @@ export const actions = {
     };
 
     return {
-      invalidMessage: "incorrect id or password.",
+      invalidMessage: resData["message"],
     };
   },
  

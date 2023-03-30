@@ -39,7 +39,7 @@ export const actions = {
 
         const resData = await res.json();
 
-        if (resData["message"] === "Application Created succesfully") {
+        if (resData["message"] === "Application Created successfully") {
             throw redirect(302, "/"+sessionId+"/projects/"+projectId+"/applications");
         }
 

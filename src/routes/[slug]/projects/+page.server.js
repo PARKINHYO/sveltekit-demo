@@ -1,6 +1,5 @@
 import { redirect } from '@sveltejs/kit';
 import { API_URL, API_VERSION } from '$env/static/private';
-import { strict } from 'assert';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params, cookies }) {
