@@ -37,19 +37,19 @@ export const actions = {
     {
       cookies.set("sessionId", resData["user_id"],{ 
         path: "/",
-        sameSite: "strict",
+        sameSite: 'strict',
         maxAge: 60 * 60 * 24
       });
 
       cookies.set("teamId", resData["team_id"], {
         path: "/",
-        sameSite: "strict",
+        sameSite: 'strict',
         maxAge: 60 * 60 * 24
       });
 
       cookies.set("teamName", resData["team_name"], {
-        path: "/", 
-        sameSite: "strict",
+        path: "/",
+        sameSite: 'strict',
         maxAge: 60 * 60 * 24
       });
       

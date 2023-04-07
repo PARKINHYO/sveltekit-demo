@@ -1,10 +1,10 @@
-import * as server from '../entries/pages/_slug_/projects/_slug_/applications/_page.server.js';
+import * as server from '../entries/pages/_slug_/projects/_page.server.js';
 
 export const index = 9;
-export const component = async () => (await import('../entries/pages/_slug_/projects/_slug_/applications/_page.svelte.js')).default;
-export const file = '_app/immutable/entry/_slug_-projects-_slug_-applications-page.svelte.3fa60736.js';
+export const component = async () => (await import('../entries/pages/_slug_/projects/_page.svelte.js')).default;
+export const file = '_app/immutable/entry/_slug_-projects-page.svelte.cdb6ab13.js';
 export { server };
-export const server_id = "src/routes/[slug]/projects/[slug]/applications/+page.server.js";
-export const imports = ["_app/immutable/entry/_slug_-projects-_slug_-applications-page.svelte.3fa60736.js","_app/immutable/chunks/index.f99c9f29.js"];
-export const stylesheets = ["_app/immutable/assets/_page.3debf35a.css"];
+export const server_id = "src/routes/[slug]/projects/+page.server.js";
+export const imports = ["_app/immutable/entry/_slug_-projects-page.svelte.cdb6ab13.js","_app/immutable/chunks/index.9cf3cee8.js","_app/immutable/chunks/singletons.f392b12c.js"];
+export const stylesheets = [];
 export const fonts = [];

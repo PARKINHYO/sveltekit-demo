@@ -1,26 +1,56 @@
 import { r as redirect } from "../../../../../chunks/index.js";
+import { A as API_URL, a as API_VERSION } from "../../../../../chunks/private.js";
+async function load({ params, cookies }) {
+  const sessionId = cookies.get("sessionId");
+  if (params.slug != sessionId) {
+    throw redirect(302, "/" + sessionId + "/projects");
+  }
+}
 const actions = {
   new: async ({ cookies, request }) => {
+    const teamId = cookies.get("teamId");
+    const sessionId = cookies.get("sessionId");
     const formData = await request.formData();
-    formData.get("name");
-    formData.get("description");
-    const username = cookies.get("username");
-    cookies.get("teamid");
-    cookies.get("sessionid");
-    const res = await fetch("https://dummyjson.com/auth/login", {
+    const name = formData.get("name");
+    const description = formData.get("description");
+    const res = await fetch(API_URL + "/api/" + API_VERSION + "/project", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        username: "kminchelle",
-        password: "0lelplR"
+        "name": name,
+        "description": description,
+        "user_id": sessionId,
+        "team_id": teamId
       })
     });
     const resData = await res.json();
-    if (resData["username"]) {
-      throw redirect(302, "/" + username + "/projects");
+    if (resData["message"] === "Project Created successfully") {
+      throw redirect(302, "/" + sessionId + "/projects");
     }
+    return {
+      invalidMessage: resData["message"]
+    };
+  },
+  signout: async ({ cookies }) => {
+    cookies.set("sessionId", "", {
+      path: "/",
+      sameSite: "strict",
+      maxAge: 0
+    });
+    cookies.set("teamId", "", {
+      path: "/",
+      sameSite: "strict",
+      maxAge: 0
+    });
+    cookies.set("teamName", "", {
+      path: "/",
+      sameSite: "strict",
+      maxAge: 0
+    });
+    throw redirect(302, "/");
   }
 };
 export {
-  actions
+  actions,
+  load
 };

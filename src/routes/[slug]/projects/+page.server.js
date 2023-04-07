@@ -31,17 +31,14 @@ export const actions = {
     signout: async ({cookies}) => {
       cookies.set("sessionId", '', {
         path: "/",
-        sameSite: "strict",
         maxAge: 0,
       });
       cookies.set("teamId", '', {
         path: "/",
-        sameSite: "strict",
         maxAge: 0,
       });
       cookies.set("teamName", '', {
         path: "/",
-        sameSite: "strict",
         maxAge: 0,
       });
       throw redirect(302, "/");

@@ -1,36 +1,44 @@
 import { r as redirect } from "../../../../chunks/index.js";
-async function load({ params }) {
-  const res = await fetch("https://dummyjson.com/users/4/posts", {
+import { A as API_URL, a as API_VERSION } from "../../../../chunks/private.js";
+async function load({ params, cookies }) {
+  const teamId = cookies.get("teamId");
+  const sessionId = cookies.get("sessionId");
+  const teamName = cookies.get("teamName");
+  if (params.slug != sessionId) {
+    throw redirect(302, "/" + sessionId + "/projects");
+  }
+  const res = await fetch(API_URL + "/api/" + API_VERSION + "/projects/" + teamId, {
     method: "GET"
   });
   const resData = await res.json();
   return {
-    username: params.slug,
-    posts: resData["posts"]
+    userId: sessionId,
+    team: teamName,
+    projects: resData.projects
   };
 }
 const actions = {
   signout: async ({ cookies }) => {
-    cookies.set("sessionid", "", {
+    cookies.set("sessionId", "", {
       path: "/",
       sameSite: "strict",
       maxAge: 0
     });
-    cookies.set("username", "", {
+    cookies.set("teamId", "", {
       path: "/",
       sameSite: "strict",
       maxAge: 0
     });
-    cookies.set("teamid", "", {
+    cookies.set("teamName", "", {
       path: "/",
       sameSite: "strict",
       maxAge: 0
     });
     throw redirect(302, "/");
   },
-  create: async ({ cookies, request }) => {
-    const username = cookies.get("username");
-    throw redirect(302, "/" + username + "/projects/new");
+  create: async ({ cookies, request, params }) => {
+    const sesssionId = await cookies.get("sessionId");
+    throw redirect(302, "/" + sesssionId + "/projects/new");
   }
 };
 export {

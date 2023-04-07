@@ -4,7 +4,7 @@ export const manifest = {
 	assets: new Set(["favicon.png","logo.png"]),
 	mimeTypes: {".png":"image/png"},
 	_: {
-		client: {"start":{"file":"_app/immutable/entry/start.7ebc5b23.js","imports":["_app/immutable/entry/start.7ebc5b23.js","_app/immutable/chunks/index.f99c9f29.js","_app/immutable/chunks/singletons.9a17b966.js"],"stylesheets":[],"fonts":[]},"app":{"file":"_app/immutable/entry/app.a7fa793e.js","imports":["_app/immutable/entry/app.a7fa793e.js","_app/immutable/chunks/index.f99c9f29.js"],"stylesheets":[],"fonts":[]}},
+		client: {"start":{"file":"_app/immutable/entry/start.db3d6866.js","imports":["_app/immutable/entry/start.db3d6866.js","_app/immutable/chunks/index.9cf3cee8.js","_app/immutable/chunks/singletons.f392b12c.js"],"stylesheets":[],"fonts":[]},"app":{"file":"_app/immutable/entry/app.3dbb1b71.js","imports":["_app/immutable/entry/app.3dbb1b71.js","_app/immutable/chunks/index.9cf3cee8.js"],"stylesheets":[],"fonts":[]}},
 		nodes: [
 			() => import('./nodes/0.js'),
 			() => import('./nodes/1.js'),
@@ -19,56 +19,57 @@ export const manifest = {
 			() => import('./nodes/10.js'),
 			() => import('./nodes/11.js'),
 			() => import('./nodes/12.js'),
-			() => import('./nodes/13.js')
+			() => import('./nodes/13.js'),
+			() => import('./nodes/14.js')
 		],
 		routes: [
 			{
 				id: "/",
 				pattern: /^\/$/,
 				params: [],
-				page: { layouts: [0], errors: [1], leaf: 7 },
+				page: { layouts: [0], errors: [1], leaf: 8 },
 				endpoint: null
 			},
 			{
 				id: "/signup",
 				pattern: /^\/signup\/?$/,
 				params: [],
-				page: { layouts: [0], errors: [1], leaf: 13 },
+				page: { layouts: [0,7], errors: [1,,], leaf: 14 },
 				endpoint: null
 			},
 			{
 				id: "/[slug]/projects",
 				pattern: /^\/([^/]+?)\/projects\/?$/,
 				params: [{"name":"slug","optional":false,"rest":false,"chained":false}],
-				page: { layouts: [0,2], errors: [1,,], leaf: 8 },
+				page: { layouts: [0,2], errors: [1,,], leaf: 9 },
 				endpoint: null
 			},
 			{
 				id: "/[slug]/projects/new",
 				pattern: /^\/([^/]+?)\/projects\/new\/?$/,
 				params: [{"name":"slug","optional":false,"rest":false,"chained":false}],
-				page: { layouts: [0,2,6], errors: [1,,,], leaf: 12 },
+				page: { layouts: [0,2,6], errors: [1,,,], leaf: 13 },
 				endpoint: null
 			},
 			{
-				id: "/[slug]/projects/[slug]/applications",
+				id: "/[slug]/projects/[slug2]/applications",
 				pattern: /^\/([^/]+?)\/projects\/([^/]+?)\/applications\/?$/,
-				params: [{"name":"slug","optional":false,"rest":false,"chained":false},{"name":"slug","optional":false,"rest":false,"chained":false}],
-				page: { layouts: [0,2,3], errors: [1,,,], leaf: 9 },
+				params: [{"name":"slug","optional":false,"rest":false,"chained":false},{"name":"slug2","optional":false,"rest":false,"chained":false}],
+				page: { layouts: [0,2,3], errors: [1,,,], leaf: 10 },
 				endpoint: null
 			},
 			{
-				id: "/[slug]/projects/[slug]/applications/new",
+				id: "/[slug]/projects/[slug2]/applications/new",
 				pattern: /^\/([^/]+?)\/projects\/([^/]+?)\/applications\/new\/?$/,
-				params: [{"name":"slug","optional":false,"rest":false,"chained":false},{"name":"slug","optional":false,"rest":false,"chained":false}],
-				page: { layouts: [0,2,3,5], errors: [1,,,,], leaf: 11 },
+				params: [{"name":"slug","optional":false,"rest":false,"chained":false},{"name":"slug2","optional":false,"rest":false,"chained":false}],
+				page: { layouts: [0,2,3,5], errors: [1,,,,], leaf: 12 },
 				endpoint: null
 			},
 			{
-				id: "/[slug]/projects/[slug]/applications/[slug2]",
+				id: "/[slug]/projects/[slug2]/applications/[slug3]",
 				pattern: /^\/([^/]+?)\/projects\/([^/]+?)\/applications\/([^/]+?)\/?$/,
-				params: [{"name":"slug","optional":false,"rest":false,"chained":false},{"name":"slug","optional":false,"rest":false,"chained":false},{"name":"slug2","optional":false,"rest":false,"chained":false}],
-				page: { layouts: [0,2,3,4], errors: [1,,,,], leaf: 10 },
+				params: [{"name":"slug","optional":false,"rest":false,"chained":false},{"name":"slug2","optional":false,"rest":false,"chained":false},{"name":"slug3","optional":false,"rest":false,"chained":false}],
+				page: { layouts: [0,2,3,4], errors: [1,,,,], leaf: 11 },
 				endpoint: null
 			}
 		],

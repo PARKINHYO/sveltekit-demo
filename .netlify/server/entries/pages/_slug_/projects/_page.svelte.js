@@ -1,35 +1,21 @@
 import { c as create_ssr_component, e as escape, d as each } from "../../../../chunks/index2.js";
-const _page_svelte_svelte_type_style_lang = "";
-const css = {
-  code: "table.svelte-81j0aw,th.svelte-81j0aw,td.svelte-81j0aw{border:1px solid;border-collapse:collapse;margin:10px}",
-  map: null
-};
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { data } = $$props;
   if ($$props.data === void 0 && $$bindings.data && data !== void 0)
     $$bindings.data(data);
-  $$result.css.add(css);
-  return `<nav><a href="${"/" + escape(data.username, true) + "/projects"}">Projects</a></nav>
+  return `<nav class="nav"><div><div class="project-logo"><a href="/"><img src="../../logo.png" alt="logo" width="32" height="32"></a></div>
 
-<h1>Projects</h1>
+        <div class="project-signout"><form method="POST" action="?/signout"><button class="project-signout-button">Sign out</button></form></div></div></nav>
 
-<form method="POST" action="?/create"><button>New project</button></form>
-<br><br>
-
-<table class="svelte-81j0aw"><thead><tr><th class="svelte-81j0aw">id</th>
-            <th class="svelte-81j0aw">title</th>
-            <th class="svelte-81j0aw">body</th></tr></thead>
-<tbody>${each(data.posts, (post) => {
-    return `<tr><td class="svelte-81j0aw">${escape(post["id"])}</td>
-          <td class="svelte-81j0aw"><a href="${"/" + escape(data.username, true) + "/projects/" + escape(post["id"], true) + "/applications"}">${escape(post["title"])}</a></td>
-          <td class="svelte-81j0aw">${escape(post["body"])}</td>
-      </tr>`;
-  })}</tbody></table>
-
-
-
-<br><br><br><br><br>
-<form method="POST" action="?/signout"><button>Sign out</button></form>`;
+<table class="project-table"><div class="project-userid">Hello🤚🏻 ${escape(data.userId)}</div>
+    <div><div class="project-title"><div>${escape(data.team)} team projects(${escape(data.projects.length)})</div></div>
+        <div><form method="POST" action="?/create"><button class="project-create">Create project</button></form></div></div>
+${each(data.projects, (project) => {
+    return `<button class="project-tr"><div class="project-name">${escape(project["name"])}</div>
+        <div class="project-appcount">${escape(project["app_count"])} applications</div> 
+        <div class="project-description">${escape(project["description"])}</div>
+    </button>`;
+  })}</table>`;
 });
 export {
   Page as default
