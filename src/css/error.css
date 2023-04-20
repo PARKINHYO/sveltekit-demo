@@ -1,13 +1,13 @@
-.signup {
-    width: 310px;
+.notfound {
+    width: 400px;
     margin: auto;
-    margin-top: 10px;
-    height: 420px;
+    margin-top: 12px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     border-radius: 10px;
-    background-color: #121519;
-    border: 1px solid #191D21;
+    background-color: #251417;
+    border: 1px solid #6C2224;
 }

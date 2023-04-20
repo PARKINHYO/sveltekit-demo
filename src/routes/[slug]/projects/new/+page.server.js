@@ -1,10 +1,18 @@
-import { redirect } from '@sveltejs/kit';
-import { API_URL, API_VERSION } from '$env/static/private';
+import {
+    redirect
+} from '@sveltejs/kit';
+import {
+    API_URL,
+    API_VERSION
+} from '$env/static/private';
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({params, cookies }) {
+export async function load({
+    params,
+    cookies
+}) {
     const sessionId = cookies.get("sessionId");
-    
+
     if (params.slug != sessionId) {
         throw redirect(302, "/" + sessionId + "/projects");
     }
@@ -12,7 +20,10 @@ export async function load({params, cookies }) {
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-    new: async ({ cookies, request }) => {
+    new: async ({
+        cookies,
+        request
+    }) => {
         const teamId = cookies.get("teamId");
         const sessionId = cookies.get("sessionId");
 
@@ -20,10 +31,12 @@ export const actions = {
 
         const name = formData.get("name");
         const description = formData.get("description");
-        
+
         const res = await fetch(API_URL + "/api/" + API_VERSION + "/project", {
             method: 'POST',
-            headers: {'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 "name": name,
                 "description": description,
@@ -35,7 +48,7 @@ export const actions = {
         const resData = await res.json();
 
         if (resData["message"] === "Project Created successfully") {
-            throw redirect(302, "/"+ sessionId +"/projects");
+            throw redirect(302, "/" + sessionId + "/projects");
         }
 
         return {
@@ -43,20 +56,23 @@ export const actions = {
         }
     },
 
-    signout: async ({ cookies }) => {
+    signout: async ({
+        cookies
+    }) => {
         cookies.set("sessionId", '', {
             path: "/",
+            sameSite: "strict",
+            maxAge: 0
+        });
+        cookies.set("teamId", '', {
+            path: "/",
+            sameSite: "strict",
             maxAge: 0,
-          });
-          cookies.set("teamId", '', {
+        });
+        cookies.set("teamName", '', {
             path: "/",
             maxAge: 0,
-          });
-          cookies.set("teamName", '', {
-            path: "/",
-            maxAge: 0,
-          });
-          throw redirect(302, "/");
+        });
+        throw redirect(302, "/");
     }
 };
-

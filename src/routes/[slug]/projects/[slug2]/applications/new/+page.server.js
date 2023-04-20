@@ -1,10 +1,18 @@
-import { redirect } from '@sveltejs/kit';
-import { API_URL, API_VERSION } from '$env/static/private';
+import {
+    redirect
+} from '@sveltejs/kit';
+import {
+    API_URL,
+    API_VERSION
+} from '$env/static/private';
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({params, cookies }) {
+export async function load({
+    params,
+    cookies
+}) {
     const sessionId = cookies.get('sessionId');
-    
+
     if (params.slug != sessionId) {
         throw redirect(302, "/" + sessionId + "/projects");
     }
@@ -12,7 +20,11 @@ export async function load({params, cookies }) {
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-    new: async ({ cookies, request, params}) => {
+    new: async ({
+        cookies,
+        request,
+        params
+    }) => {
         const teamId = cookies.get('teamId');
         const sessionId = cookies.get('sessionId');
         const teamName = cookies.get('teamName');
@@ -24,15 +36,17 @@ export const actions = {
         const type = formData.get("type");
 
         const projectId = params.slug2
-        
+
         const res = await fetch(API_URL + "/api/" + API_VERSION + "/app", {
             method: 'POST',
-            headers: {'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 "name": name,
                 "type": type,
                 "description": description,
-                "user_id": sessionId, 
+                "user_id": sessionId,
                 "project_id": projectId
             })
         });
@@ -40,7 +54,7 @@ export const actions = {
         const resData = await res.json();
 
         if (resData["message"] === "Application Created successfully") {
-            throw redirect(302, "/"+sessionId+"/projects/"+projectId+"/applications");
+            throw redirect(302, "/" + sessionId + "/projects/" + projectId + "/applications");
         }
 
         return {
@@ -48,20 +62,24 @@ export const actions = {
         }
     },
 
-    signout: async ({ cookies }) => {
+    signout: async ({
+        cookies
+    }) => {
         cookies.set("sessionId", '', {
             path: "/",
+            sameSite: "strict",
             maxAge: 0,
-          });
-          cookies.set("teamId", '', {
+        });
+        cookies.set("teamId", '', {
             path: "/",
+            sameSite: "strict",
             maxAge: 0,
-          });
-          cookies.set("teamName", '', {
+        });
+        cookies.set("teamName", '', {
             path: "/",
+            sameSite: "strict",
             maxAge: 0,
-          });
-          throw redirect(302, "/");
+        });
+        throw redirect(302, "/");
     }
 }
-

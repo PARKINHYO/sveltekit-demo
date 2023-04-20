@@ -7,7 +7,7 @@
 <nav class="nav">
     <div>
         <div class="project-logo">
-            <a href="/" ><img src="../../../logo.png" alt="logo" width="32" height="32"></a>
+            <a href="/" ><img src="/logo.png" alt="logo" width="32" height="32"></a>
         </div>
 
         <div class="project-signout">
@@ -49,27 +49,27 @@
                 <input type="hidden" name="appId" value="{application['id']}">
                 <button class="application-info-button">Deploy</button>
             </form>
-            <form class="application-info-form" method="POST" action="?/source">
+            <form class="application-info-form" method="POST" action="?/source" target="_blank">
                 <input type="hidden" name="appId" value="{application['id']}">
                 <button class="application-info-button2">GitLab(source)</button>
             </form>
-            <form class="application-info-form" method="POST" action="?/gitops">
+            <form class="application-info-form" method="POST" action="?/gitops" target="_blank">
                 <input type="hidden" name="appId" value="{application['id']}">
                 <button class="application-info-button2">GitLab(gitops)</button>
             </form>
-            <form class="application-info-form" method="POST" action="?/jenkins">
+            <form class="application-info-form" method="POST" action="?/jenkins" target="_blank">
                 <input type="hidden" name="appId" value="{application['id']}">
                 <button class="application-info-button4">Jenkins</button>
             </form>
-            <form class="application-info-form" method="POST" action="?/argocd">
+            <form class="application-info-form" method="POST" action="?/argocd" target="_blank">
                 <input type="hidden" name="appId" value="{application['id']}">
                 <button class="application-info-button3">ArgoCD</button>
             </form>
-            <form class="application-info-form" method="POST" action="?/grafana">
+            <form class="application-info-form" method="POST" action="?/grafana" target="_blank">
                 <input type="hidden" name="appId" value="{application['id']}">
                 <button class="application-info-button2">Grafana</button>
             </form>
-            <form class="application-info-form" method="POST" action="?/kibana">
+            <form class="application-info-form" method="POST" action="?/kibana" target="_blank">
                 <input type="hidden" name="appId" value="{application['id']}">
                 <button class="application-info-button5">Kibana</button>
             </form>

@@ -11,7 +11,6 @@
     background-color: #121519;
     border: 1px solid #191D21;
 }
-
 #login {
     width: 100%;
     background-color: #1F7629;
@@ -19,15 +18,12 @@
     color: white;
     margin-top: 15px;
 }
-
 #login:hover {
     filter: brightness(150%);
 }
-
 #login:active {
     filter: brightness(70%);
 }
-
 .account {
     width: 275px;
     height: 29px;
@@ -38,15 +34,12 @@
     background-color: #0C0E12;
     color: white;
 }
-
 .text {
     padding: 6px;
 }
-
 .container3 {
     color: red;
 }
-
 .minibox {
     width: 310px;
     margin: auto;
@@ -60,7 +53,6 @@
     background-color: #0C0E12;
     border: 1px solid #24292E;
 }
-
 .logo {
     width: 170px;
     margin: auto;
@@ -74,7 +66,6 @@
     border-radius: 10px;
     background-color: #0C0E12;
 }
-
 .slogun {
     width: 170px;
     margin: auto;
@@ -89,7 +80,6 @@
     border-radius: 10px;
     background-color: #0C0E12;
 }
-
 .message {
     width: 310px;
     margin: auto;
@@ -103,7 +93,6 @@
     background-color: #251417;
     border: 1px solid #6C2224;
 }
-
 .link {
     color: #407CDC;
     text-decoration-line: none;
